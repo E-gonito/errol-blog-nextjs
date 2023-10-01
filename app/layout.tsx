@@ -2,8 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Errol Blog',
-  description: 'A blog about software development and other things.',
+  title: 'Star Rail Realm',
+  description: 'A website for discussing Honkai: Star Rail.',
 }
 
 export default function RootLayout({

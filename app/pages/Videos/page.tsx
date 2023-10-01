@@ -1,8 +1,8 @@
-import NavigationBar from "./components/NavigationBar"
-import HomeSection from "./components/HomeSection"
-import FooterSection from "./components/FooterSection"
+import NavigationBar from "app/components/NavigationBar"
+import FooterSection from "app/components/FooterSection"
+import MainSection from "./components/MainSection"
 
-export default function Home() {
+export default function Videos() {
   return (
     <main style={{ 
       position: 'relative',
@@ -10,7 +10,7 @@ export default function Home() {
       <div style={{
         backgroundImage: `url('https://wallpapercave.com/wp/wp2062757.jpg')`, 
         backgroundSize: 'cover',
-        filter: 'blur(5px) brightness(25%)',
+        filter: 'blur(4px) brightness(30%)',
         position: 'absolute',
         top: 0,
         left: 0,
@@ -20,7 +20,7 @@ export default function Home() {
       }}/>
       <NavigationBar/>
       <div>
-        <HomeSection/>
+        <MainSection/>
         <FooterSection/>
       </div> 
     </main>
