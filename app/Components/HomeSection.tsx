@@ -39,7 +39,7 @@ const features = [
   },
   
 ]
-function HomeSection() {
+const HomeSection = () => {
   return (
     <div className="overflow-hidden py-24 sm:py-32">
       <div className="mx-auto max-w-7xl md:px-6 lg:px-8">

@@ -4,19 +4,19 @@ import { useState, useEffect } from 'react';
 
 import Link from 'next/link'
 import Image from 'next/image'
+
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Characters', href: 'pages/Characters' },
-  { name: 'Light Cones', href: 'pages/LightCones' },
-  { name: 'Teams', href: 'pages/Teams' },
-  { name: 'Tier List', href: 'pages/TierList' },
-  { name: 'Videos', href: 'pages/Videos' },
-  { name: 'Art', href: 'pages/Art' },
-  { name: 'Tools', href: 'pages/Tools' },
+  { name: 'Characters', href: '/pages/Characters' },
+  { name: 'Light Cones', href: '/pages/LightCones' },
+  { name: 'Teams', href: '/pages/Teams' },
+  { name: 'Tier List', href: '/pages/TierList' },
+  { name: 'Videos', href: '/pages/Videos' },
+  { name: 'Art', href: '/pages/Art' },
+  { name: 'Tools', href: '/pages/Tools' },
 ]
-
 
 function NavigationBar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -33,7 +33,8 @@ function NavigationBar() {
     }, []);
   
     return (
-      <header style={{ backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 1)', transition: 'background-color 0.5s ease', position: 'sticky', top: 0, zIndex: 10 }}>
+      <header style={{ backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 1)', 
+                      transition: 'background-color 0.5s ease', position: 'sticky', top: 0, zIndex: 10 }}>
       <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex items-end lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
