@@ -8,6 +8,8 @@ import Image from 'next/image'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 const navigation = [
   { name: 'Characters', href: '/pages/Characters' },
   { name: 'Light Cones', href: '/pages/LightCones' },
@@ -21,6 +23,8 @@ const navigation = [
 function NavigationBar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const { loginWithRedirect, logout} = useAuth0();
+    const { user, isAuthenticated, isLoading } = useAuth0();
   
     useEffect(() => {
       const handleScroll = () => {
@@ -36,18 +40,18 @@ function NavigationBar() {
       <header style={{ backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 1)', 
                       transition: 'background-color 0.5s ease', position: 'sticky', top: 0, zIndex: 10 }}>
       <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex items-end lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
-            <Image 
-              className="h-12 w-auto" 
-              src="https://hsr.keqingmains.com/wp-content/uploads/2023/09/Bailu_Sticker_03.webp" 
-              alt="" 
-              width={256} 
-              height={256} 
-            />
-          </a>
-          <p className= "text-gray-900 pl-2">Star Rail Realm</p>
-        </div>
+        <div className="flex items-center lg:flex-1">
+            <a href="/" className="-m-1.5 p-1.5">
+              <Image 
+                className="h-12 w-auto" 
+                src="https://hsr.keqingmains.com/wp-content/uploads/2023/09/Bailu_Sticker_03.webp" 
+                alt="" 
+                width={256} 
+                height={256} 
+              />
+            </a>
+            <p className= "text-xl text-gray-900 pl-2 font-bold">Star Rail Realm</p>
+          </div>
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -68,9 +72,30 @@ function NavigationBar() {
         ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+        {!isAuthenticated &&
+          <button 
+            onClick={() => loginWithRedirect()} 
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+              Log in <span aria-hidden="true">&rarr;</span>
+          </button> }
+        {isAuthenticated && 
+          <div className="flex flex-col items-center">
+            <img className = "h-8 w-auto" src={user.picture} alt={user.name} />
+            <h1 className="text-sm font-semibold leading-6 text-gray-900">{user.name}</h1>
+          </div> 
+        }
+        {isAuthenticated && 
+          <div className = "flex flex-row items-center">
+            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+              <button 
+                onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Log out <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </div> }
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>

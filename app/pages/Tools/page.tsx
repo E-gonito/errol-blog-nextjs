@@ -2,7 +2,7 @@ import NavigationBar from "app/components/NavigationBar"
 import FooterSection from "app/components/FooterSection"
 import MainSection from "./components/MainSection"
 
-export default function Tools() {
+const Tools = () => {
   return (
     <main style={{ 
       position: 'relative',
@@ -26,3 +26,5 @@ export default function Tools() {
     </main>
   )
 }
+
+export default Tools;

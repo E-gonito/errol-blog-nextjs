@@ -2,7 +2,7 @@ import NavigationBar from "app/components/NavigationBar"
 import FooterSection from "app/components/FooterSection"
 import MainSection from "./components/MainSection"
 
-export default function Characters() {
+const Characters = () => {
   return (
     <main style={{ 
       position: 'relative',
@@ -26,3 +26,5 @@ export default function Characters() {
     </main>
   )
 }
+
+export default Characters;

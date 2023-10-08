@@ -1,8 +1,7 @@
 import NavigationBar from "app/components/NavigationBar"
 import FooterSection from "app/components/FooterSection"
 import MainSection from "./components/MainSection"
-
-export default function LightCones() {
+const LightCones = () => {
   return (
     <main style={{ 
       position: 'relative',
@@ -26,3 +25,5 @@ export default function LightCones() {
     </main>
   )
 }
+
+export default LightCones;

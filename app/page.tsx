@@ -2,7 +2,7 @@ import NavigationBar from "./components/NavigationBar"
 import HomeSection from "./components/HomeSection"
 import FooterSection from "./components/FooterSection"
 
-export default function Home() {
+const Home = () => {
   return (
     <main style={{ 
       position: 'relative',
@@ -26,3 +26,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default Home;
