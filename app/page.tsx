@@ -10,7 +10,7 @@ const Home = () => {
       <div style={{
         backgroundImage: `url('https://wallpapercave.com/wp/wp2062757.jpg')`, 
         backgroundSize: 'cover',
-        filter: 'blur(5px) brightness(25%)',
+        filter: 'blur(5px) brightness(15%)',
         position: 'absolute',
         top: 0,
         left: 0,

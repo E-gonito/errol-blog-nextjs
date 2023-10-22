@@ -37,8 +37,15 @@ function NavigationBar() {
     }, []);
   
     return (
-      <header style={{ backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 1)', 
-                      transition: 'background-color 0.5s ease', position: 'sticky', top: 0, zIndex: 10 }}>
+      <header style={{ 
+        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 1)', 
+        transition: 'background-color 0.5s ease', 
+        position: 'sticky', 
+        top: 0, 
+        zIndex: 10,
+        backdropFilter: 'blur(10px)', 
+        height: '85px',
+      }}>
       <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex items-center lg:flex-1">
             <a href="/" className="-m-1.5 p-1.5">
@@ -50,7 +57,9 @@ function NavigationBar() {
                 height={256} 
               />
             </a>
-            <p className= "text-xl text-gray-900 pl-2 font-bold">Star Rail Realm</p>
+            <Link href="/">
+              <p className="text-xl text-gray-900 pl-2 font-bold">Star Rail Realm</p>
+            </Link>
           </div>
         <div className="flex lg:hidden">
           <button
@@ -65,7 +74,7 @@ function NavigationBar() {
         <div className="hidden lg:flex lg:gap-x-12">
         {navigation.map((item) => (
           <Link key={item.name} href={item.href}>
-            <p className="text-sm font-semibold leading-6 text-gray-900">
+            <p className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500">
               {item.name}
             </p>
           </Link>
@@ -75,22 +84,24 @@ function NavigationBar() {
         {!isAuthenticated &&
           <button 
             onClick={() => loginWithRedirect()} 
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500"  
           >
               Log in <span aria-hidden="true">&rarr;</span>
           </button> }
-        {isAuthenticated && 
-          <div className="flex flex-col items-center">
-            <img className = "h-8 w-auto" src={user.picture} alt={user.name} />
-            <h1 className="text-sm font-semibold leading-6 text-gray-900">{user.name}</h1>
-          </div> 
-        }
+          <div className="flex flex-col items-center h-8">
+          {isAuthenticated && (
+            <>
+              <img className="h-8 w-auto" src={user.picture} alt={user.name} />
+              <h1 className="text-sm font-semibold leading-6 text-gray-900">{user.name}</h1>
+            </>
+          )}
+        </div>
         {isAuthenticated && 
           <div className = "flex flex-row items-center">
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
               <button 
                 onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500"
               >
                 Log out <span aria-hidden="true">&rarr;</span>
               </button>

@@ -1,4 +1,9 @@
-function MainSection() {
+import { PrismaClient } from "@prisma/client";
+import { getPosts } from 'app/api/Prisma'
+import { prisma } from 'app/api/Prisma'
+
+const MainSection = async () => {
+  const posts = await prisma.post.findMany();
   return (
     <div className="overflow-hidden py-24 sm:py-32">
       <div className="mx-auto max-w-7xl md:px-6 lg:px-8">

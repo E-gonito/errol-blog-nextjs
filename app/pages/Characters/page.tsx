@@ -2,6 +2,9 @@ import NavigationBar from "app/components/NavigationBar"
 import FooterSection from "app/components/FooterSection"
 import MainSection from "./components/MainSection"
 
+import { GetServerSideProps } from 'next'
+import { getPosts } from 'app/api/Prisma'
+
 const Characters = () => {
   return (
     <main style={{ 
