@@ -11,7 +11,7 @@ const MainSection = async () => {
           <div className="px-6 md:px-0 lg:pr-4 lg:pt-4">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
               <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Characters</p>
-              <p className="mt-6 text-lg leading-8 text-gray-400">
+              <p className="mt-6 text-lg leading-8 text-gray-200">
                 Welcome to the Star Rail Realm! This is a community based website for the game 'Honkai: Star Rail' where you can discuss and theorycraft with fellow users, 
                 see the latest information, share fan made content and more! <br/>
                 We also have a plethora of tools for you to use, such as a team builder, tier list maker and a wrap simulator!

@@ -38,12 +38,12 @@ function NavigationBar() {
   
     return (
       <header style={{ 
-        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 1)', 
+        backgroundColor: isScrolled ? 'rgba(38, 38, 38,, 0.8)' : 'rgba(38, 38, 38,, 1)', 
         transition: 'background-color 0.5s ease', 
         position: 'sticky', 
         top: 0, 
         zIndex: 10,
-        backdropFilter: 'blur(10px)', 
+        backdropFilter: 'blur(20px)', 
         height: '85px',
       }}>
       <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -58,13 +58,13 @@ function NavigationBar() {
               />
             </a>
             <Link href="/">
-              <p className="text-xl text-gray-900 pl-2 font-bold">Star Rail Realm</p>
+              <p className="text-xl text-white-900 pl-2 font-bold">Star Rail Realm</p>
             </Link>
           </div>
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white-700"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -74,7 +74,7 @@ function NavigationBar() {
         <div className="hidden lg:flex lg:gap-x-12">
         {navigation.map((item) => (
           <Link key={item.name} href={item.href}>
-            <p className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500">
+            <p className="text-sm font-semibold leading-6 text-white-900 hover:text-blue-500">
               {item.name}
             </p>
           </Link>
@@ -84,7 +84,7 @@ function NavigationBar() {
         {!isAuthenticated &&
           <button 
             onClick={() => loginWithRedirect()} 
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500"  
+            className="text-sm font-semibold leading-6 text-white-900 hover:text-blue-500"  
           >
               Log in <span aria-hidden="true">&rarr;</span>
           </button> }
