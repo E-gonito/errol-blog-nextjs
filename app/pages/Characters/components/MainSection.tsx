@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { getPosts } from 'app/api/Prisma'
+import { getPosts, createPosts } from 'app/api/Prisma'
 import { prisma } from 'app/api/Prisma'
 
 const MainSection = async () => {
@@ -16,6 +16,12 @@ const MainSection = async () => {
                 see the latest information, share fan made content and more! <br/>
                 We also have a plethora of tools for you to use, such as a team builder, tier list maker and a wrap simulator!
               </p>
+              {posts.map((post) => (
+                <div key={post.id}>
+                  <h2>{post.title}</h2>
+                  <p>{post.content}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
