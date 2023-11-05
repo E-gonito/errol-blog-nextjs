@@ -1208,7 +1208,7 @@ __metadata:
     eslint: 8.49.0
     eslint-config-next: 13.4.19
     next: 13.4.19
-    next-auth: ^4.23.1
+    next-auth: ^4.24.4
     postcss: 8.4.29
     prisma: ^5.4.2
     react: 18.2.0
@@ -2800,9 +2800,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-auth@npm:^4.23.1":
-  version: 4.23.2
-  resolution: "next-auth@npm:4.23.2"
+"next-auth@npm:^4.24.4":
+  version: 4.24.4
+  resolution: "next-auth@npm:4.24.4"
   dependencies:
     "@babel/runtime": ^7.20.13
     "@panva/hkdf": ^1.0.2
@@ -2814,14 +2814,14 @@ __metadata:
     preact-render-to-string: ^5.1.19
     uuid: ^8.3.2
   peerDependencies:
-    next: ^12.2.5 || ^13
+    next: ^12.2.5 || ^13 || ^14
     nodemailer: ^6.6.5
     react: ^17.0.2 || ^18
     react-dom: ^17.0.2 || ^18
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: 4820fdc8d9f066afd2dfe64012d7aba727fd7b82fec3a94e85ea5c1651cb4bf532d8742bfd253d9910055833f00c1c8f8f17212661f7648ecff4dd1f3e002e80
+  checksum: 93d14137609f0759da35173b648f882d505b6a04d1366f73ddabd8cf88c4198439960c1167c3ace0c09396aea26d3d4a9996e7f29db3c4a1b1db46ceb9b323e2
   languageName: node
   linkType: hard
 

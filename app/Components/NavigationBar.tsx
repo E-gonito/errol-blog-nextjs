@@ -8,8 +8,6 @@ import Image from 'next/image'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import { useAuth0 } from "@auth0/auth0-react";
-
 import { createUserIfNotExist } from 'app/api/Prisma';
 
 const navigation = [
@@ -25,8 +23,6 @@ const navigation = [
 function NavigationBar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const { loginWithRedirect, logout} = useAuth0();
-    const { user, isAuthenticated, isLoading } = useAuth0();
   
     useEffect(() => {
       const handleScroll = () => {
@@ -37,18 +33,6 @@ function NavigationBar() {
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-    
-    useEffect(() => {
-      if (isAuthenticated) {
-        createUserIfNotExist(user.sub, user.email, user.name)
-          .then((createdUser) => {
-            console.log(createdUser);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }
-    }, [isAuthenticated, user]);
     
     return (
       <header style={{ 
@@ -95,34 +79,11 @@ function NavigationBar() {
         ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        {!isAuthenticated &&
           <button 
-            onClick={() => loginWithRedirect()} 
             className="text-sm font-semibold leading-6 text-white-900 hover:text-blue-500"  
           >
               Log in <span aria-hidden="true">&rarr;</span>
-          </button> }
-          <Link href="/pages/Profile">
-            <div className="flex flex-col items-center h-8">
-              {isAuthenticated && (
-                <>
-                  <img className="h-8 w-auto" src={user.picture} alt={user.name} />
-                  <h1 className="text-sm font-semibold leading-6 text-white-900">{user.name}</h1>
-                </>
-              )}
-            </div>
-          </Link>
-        {isAuthenticated && 
-          <div className = "flex flex-row items-center">
-            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-              <button 
-                onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
-                className="text-sm font-semibold leading-6 text-white-900 hover:text-blue-500"
-              >
-                Log out <span aria-hidden="true">&rarr;</span>
-              </button>
-            </div>
-          </div> }
+          </button> 
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
