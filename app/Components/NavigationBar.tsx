@@ -10,6 +10,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import { useAuth0 } from "@auth0/auth0-react";
 
+import { createUserIfNotExist } from 'app/api/Prisma';
+
 const navigation = [
   { name: 'Characters', href: '/pages/Characters' },
   { name: 'Light Cones', href: '/pages/LightCones' },
@@ -35,7 +37,19 @@ function NavigationBar() {
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-  
+    
+    useEffect(() => {
+      if (isAuthenticated) {
+        createUserIfNotExist(user.sub, user.email, user.name)
+          .then((createdUser) => {
+            console.log(createdUser);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+    }, [isAuthenticated, user]);
+    
     return (
       <header style={{ 
         backgroundColor: isScrolled ? 'rgba(38, 38, 38,, 0.8)' : 'rgba(38, 38, 38,, 1)', 
@@ -88,20 +102,22 @@ function NavigationBar() {
           >
               Log in <span aria-hidden="true">&rarr;</span>
           </button> }
-          <div className="flex flex-col items-center h-8">
-          {isAuthenticated && (
-            <>
-              <img className="h-8 w-auto" src={user.picture} alt={user.name} />
-              <h1 className="text-sm font-semibold leading-6 text-gray-900">{user.name}</h1>
-            </>
-          )}
-        </div>
+          <Link href="/pages/Profile">
+            <div className="flex flex-col items-center h-8">
+              {isAuthenticated && (
+                <>
+                  <img className="h-8 w-auto" src={user.picture} alt={user.name} />
+                  <h1 className="text-sm font-semibold leading-6 text-white-900">{user.name}</h1>
+                </>
+              )}
+            </div>
+          </Link>
         {isAuthenticated && 
           <div className = "flex flex-row items-center">
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
               <button 
                 onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
-                className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500"
+                className="text-sm font-semibold leading-6 text-white-900 hover:text-blue-500"
               >
                 Log out <span aria-hidden="true">&rarr;</span>
               </button>
@@ -125,7 +141,7 @@ function NavigationBar() {
             </a>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 rounded-md p-2.5 text-white-700"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
@@ -139,7 +155,7 @@ function NavigationBar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white-900 hover:bg-gray-50"
                   >
                     {item.name}
                   </a>
@@ -148,7 +164,7 @@ function NavigationBar() {
               <div className="py-6">
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white-900 hover:bg-gray-50"
                 >
                   Log in
                 </a>
