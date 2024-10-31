@@ -7,24 +7,16 @@ const BackgroundChanger = () => {
   // Array of background image paths
 const images: string[] = useMemo(() => [
     '/homephotos/EJG2129.JPG',
-    '/homephotos/EJG1073.JPG',
     '/homephotos/EJG2824.JPG',
-    '/homephotos/EJG2865.JPG',
-    '/homephotos/EJG2872.JPG',
-    '/homephotos/EJG2881.JPG',
-    '/homephotos/EJG3313.JPG',
     '/homephotos/EJG4425.JPG',
     '/homephotos/EJG5061.JPG',
     '/homephotos/EJG5083.JPG',
-    '/homephotos/EJG6577.JPG',
     '/homephotos/EJG6591.JPG',
     '/homephotos/EJG6634.JPG',
-    '/homephotos/EJG6884.JPG',
     '/homephotos/EJG7264.JPG',
     '/homephotos/EJG7358.JPG',
     '/homephotos/EJG7428.JPG',
     '/homephotos/EJG7456.JPG',
-    '/homephotos/EJG7527.JPG',
     '/homephotos/EJG7760.JPG',
 ], []);
 
