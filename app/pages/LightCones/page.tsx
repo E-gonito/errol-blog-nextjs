@@ -1,6 +1,7 @@
-import NavigationBar from "app/components/NavigationBar"
-import FooterSection from "app/components/FooterSection"
+import NavigationBar from "../../components/NavigationBar" 
+import FooterSection from "../../components/FooterSection"
 import MainSection from "./components/MainSection"
+
 const LightCones = () => {
   return (
     <main style={{ 

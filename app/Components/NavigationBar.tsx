@@ -8,10 +8,7 @@ import Image from 'next/image'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import { createUserIfNotExist } from 'app/api/Prisma';
-
 const navigation = [
-  { name: 'Characters', href: '/pages/Characters' },
   { name: 'Light Cones', href: '/pages/LightCones' },
   { name: 'Teams', href: '/pages/Teams' },
   { name: 'Tier List', href: '/pages/TierList' },
@@ -56,7 +53,7 @@ function NavigationBar() {
               />
             </a>
             <Link href="/">
-              <p className="text-xl text-white-900 pl-2 font-bold">Star Rail Realm</p>
+              <p className="text-xl text-white-900 pl-2 font-bold">MD Games</p>
             </Link>
           </div>
         <div className="flex lg:hidden">
