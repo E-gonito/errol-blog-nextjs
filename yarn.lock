@@ -1712,7 +1712,7 @@ supports-color@^7.1.0:
 supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
 
-tailwindcss@latest:
+tailwindcss@^3.4.14:
   version "3.4.14"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.14.tgz"
   integrity sha512-IcSvOcTRcUtQQ7ILQL5quRDg7Xs93PdJEk1ZLbhhvJc7uj/OAhYOnruEiwnGgBvUtaUAJ8/mhSw1o8L2jCiENA==

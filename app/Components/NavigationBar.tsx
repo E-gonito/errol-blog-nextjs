@@ -9,12 +9,12 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Light Cones', href: '/pages/LightCones' },
-  { name: 'Teams', href: '/pages/Teams' },
-  { name: 'Tier List', href: '/pages/TierList' },
-  { name: 'Videos', href: '/pages/Videos' },
-  { name: 'Art', href: '/pages/Art' },
-  { name: 'Tools', href: '/pages/Tools' },
+  { name: 'CV', href: '/pages/Videos' },
+  { name: 'Projects', href: '/pages/LightCones' },
+  { name: 'Skills', href: '/pages/Teams' },
+  { name: 'Experience', href: '/pages/TierList' },
+  { name: 'Gallery', href: '/pages/Art' },
+  { name: 'Contact', href: '/pages/Tools' },
 ]
 
 function NavigationBar() {
@@ -33,12 +33,12 @@ function NavigationBar() {
     
     return (
       <header style={{ 
-        backgroundColor: isScrolled ? 'rgba(38, 38, 38,, 0.8)' : 'rgba(38, 38, 38,, 1)', 
+        backgroundColor: isScrolled ? 'rgba(38, 38, 38,, 1)' : 'rgba(38, 38, 38,, 1)', 
         transition: 'background-color 0.5s ease', 
         position: 'sticky', 
         top: 0, 
         zIndex: 10,
-        backdropFilter: 'blur(20px)', 
+        backdropFilter: 'blur(5px)', 
         height: '85px',
       }}>
       <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -53,7 +53,7 @@ function NavigationBar() {
               />
             </a>
             <Link href="/">
-              <p className="text-xl text-white-900 pl-2 font-bold">MD Games</p>
+              <p className="text-xl text-white-900 pl-2 font-bold">Errolson Gonito</p>
             </Link>
           </div>
         <div className="flex lg:hidden">
@@ -99,7 +99,7 @@ function NavigationBar() {
             </a>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-white-700"
+              className="-m-2.5 rounded-md p-2.5 text-black-700"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
@@ -113,7 +113,7 @@ function NavigationBar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7 text-black-900 hover:bg-gray-50"
                   >
                     {item.name}
                   </a>
@@ -122,7 +122,7 @@ function NavigationBar() {
               <div className="py-6">
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-black-900 hover:bg-gray-50"
                 >
                   Log in
                 </a>

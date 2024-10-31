@@ -1,23 +1,14 @@
 import NavigationBar from "./components/NavigationBar"
 import HomeSection from "./components/HomeSection"
 import FooterSection from "./components/FooterSection"
+import BackgroundChanger from "./components/BackgroundChanger";
 
 const Home = () => {
   return (
     <main style={{ 
       position: 'relative',
     }}>
-      <div style={{
-        backgroundImage: `url('https://wallpapercave.com/wp/wp2062757.jpg')`, 
-        backgroundSize: 'cover',
-        filter: 'blur(2px) brightness(35%)',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: -1,
-      }}/>
+      <BackgroundChanger />
       <NavigationBar/>
       <div>
         <HomeSection/>
